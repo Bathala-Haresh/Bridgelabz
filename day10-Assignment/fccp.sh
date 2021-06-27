@@ -1,7 +1,6 @@
-#!/bin/bash
+#!/bin/bash -x
 print_winner ()
 {
-    #Inside the function, using local -n ref=$1 to declare a nameref to the variable named by $1, meaning it's not a reference to $1 itself, but rather to a variable whose name $1 holds
     local -n keys=$1
     local -n values=$2
 
@@ -21,7 +20,7 @@ print_winner ()
 read -p "Enter number of times to flip a combination:" no_of_flips
 
 echo 
-echo "---------------------------SINGLET-COMBINATION---------------------------"
+echo "------------SINGLET-COMBINATION----------"
 #for singlet there 2^1=2 possible outcomes
 declare -A singlet_frequency=( 
 
@@ -52,7 +51,7 @@ do
     echo "percentage of $combination is ${singlet_frequency[$combination]}%"   
 done
 
-echo "---------------------------DOUBLET-COMBINATION---------------------------"
+echo "---------DOUBLET-COMBINATION--------"
 #for doublelet there 2^2=4 possible outcomes
 declare -A doublet_frequency=( 
 
@@ -99,7 +98,7 @@ do
     echo "percentage of $combination is ${doublet_frequency[$combination]}%"   
 done
 
-echo "---------------------------TRIPLET-COMBINATION---------------------------"
+echo "TRIPLET-COMBINATION"
 #for triplet there 2^3=8 possible outcomes
 declare -A triplet_frequency=( 
                                     [HHH]=0
